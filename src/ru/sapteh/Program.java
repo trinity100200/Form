@@ -2,18 +2,12 @@ package ru.sapteh;
 
 import com.sun.source.doctree.SystemPropertyTree;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class Program {
     public static void main(String[] args) throws IOException {
 
-//        Person name = new Person("Kira", 19,2001);
-//        Person name1 = new Person("Alex", 19,2001);
-//        Person name2 = new Person("Trinity", 20, 2000);
 
-//        System.out.println(name.toString() + "\n" + name1.toString() + "\n" + name2.toString());
 
         var reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Введите имя: ");
@@ -25,6 +19,15 @@ public class Program {
         Person person = new Person(name, age, date);
         System.out.println(person.toString());
         System.out.println(personIsEmpty(person));
+
+        File dir = new File("C:/Java 42т/1/Reg");
+        File spisok = new File("C:/Java 42т/1/Reg/spisok.txt");
+        System.out.println(dir.mkdir() ? "success" : "error");
+        System.out.println(dir.createNewFile() ? "success" : "error");
+        FileWriter fw = new FileWriter(spisok);
+        System.out.println(personIsEmpty(person));
+        fw.write(personIsEmpty(person));
+        fw.close();
     }
 
     public static String personIsEmpty(Person a) {
